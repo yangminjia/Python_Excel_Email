@@ -13,7 +13,7 @@ font = FontProperties(fname=r"c:\\windows\\fonts\\simsun.ttc", size=14)
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
+####
 #open excel file and get sheet
 myBook = xlrd.open_workbook(r'new.xlsx')
 mySheet = myBook.sheet_by_index(0)
