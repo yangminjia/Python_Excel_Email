@@ -41,13 +41,13 @@ plt.title('日活与总安装', fontproperties=font)
 plt.xticks(range(len(time)),time,rotation=25)
 ax = fig.add_subplot(1,1,1)
 ax1 = ax.twinx()
-ax1.plot(bline, label = 'GP Install/Total')
+ax1.plot(bline, color = 'r', label = 'GP Install/Total')
 # ax.xaxis.set_major_formatter(mdate.DateFormatter('%Y/%m/%d'))#设置时间标签显示格式
 
 for i in range(0, len(time)):
     ax.annotate(str(dau[i]), (i-1, dau[i]))
 for i in range(0, len(time)):
-    ax1.annotate(str(format(bline[i], '.2%')), (i-1, bline[i]+0.01),rotation=60)
+    ax1.annotate(str(format(bline[i], '.2%')), (i-1, bline[i]),rotation=60)
 plt.legend(loc='upper left', bbox_to_anchor=(0.65, -0.09), fancybox=True, ncol=5)
 # ax.annotate('100', (1,tps[1]))
 # plt.savefig(u"收入.png")
