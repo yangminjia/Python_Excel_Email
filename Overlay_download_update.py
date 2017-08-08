@@ -31,14 +31,14 @@ front.pop(0)
 end.pop(0)
 bline.pop(0)
 #declare a figure object to plot
-fig = plt.figure(figsize = (10,5))
+fig = plt.figure(figsize = (15,8))
 bar_width = 0.4
 #plot tps
 # plt.plot(tps)
 left = [x for x in range(0, len(time))]
 plt.bar(left, front, bar_width, color='b', label='Update')
 plt.bar(left, end, bar_width, bottom=front, color='r', label = 'Install')
-plt.legend(loc='upper right', bbox_to_anchor=(1, -0.08), fancybox=True, ncol=5)
+plt.legend(loc='upper right', bbox_to_anchor=(1, -0.09), fancybox=True, ncol=5)
 #advance settings
 plt.title('下载与安装', fontproperties=font)
 plt.xticks(range(len(time)),time,rotation=25)
@@ -51,7 +51,7 @@ for i in range(0, len(time)):
     ax.annotate(str(end[i]), (i-1, end[i]+front[i]))
 for i in range(0, len(time)):
     ax1.annotate(str(format(bline[i], '.2%')), (i-1, bline[i]+0.01),rotation=60)
-plt.legend(loc='upper left', bbox_to_anchor=(0.65, -0.08), fancybox=True, ncol=5)
+plt.legend(loc='upper left', bbox_to_anchor=(0.65, -0.09), fancybox=True, ncol=5)
 # ax.annotate('100', (1,tps[1]))
 # plt.savefig(u"收入.png")
 #show the figure
