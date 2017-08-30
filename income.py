@@ -14,7 +14,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 #open excel file and get sheet
-myBook = xlrd.open_workbook(r'new.xlsx')
+myBook = xlrd.open_workbook(r'fx_CJ095_1065.xlsx')
 mySheet = myBook.sheet_by_index(0)
 
 #get datas
@@ -31,7 +31,7 @@ tps.pop(0)
 fig = plt.figure(figsize = (15,8))
 
 #plot tps
-plt.plot(tps, label='收入')
+plt.plot(tps, color='#57B7E0', label='收入')
 
 #advance settings
 plt.title('收入')
@@ -40,7 +40,7 @@ ax = fig.add_subplot(1,1,1)
 # ax.xaxis.set_major_formatter(mdate.DateFormatter('%Y/%m/%d'))#设置时间标签显示格式
 plt.xticks(range(len(time)),time,rotation=25)
 for i in range(0, len(time)):
-    ax.annotate(str(tps[i]), (i - 0.6, tps[i]), rotation=60)
+    ax.annotate(str(tps[i]), (i, tps[i]))
     
 
 #show the figure

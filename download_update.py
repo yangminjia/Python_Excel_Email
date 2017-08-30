@@ -15,7 +15,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 #open excel file and get sheet
-myBook = xlrd.open_workbook(r'new.xlsx')
+myBook = xlrd.open_workbook(r'fx_CJ095_1065.xlsx')
 mySheet = myBook.sheet_by_index(0)
 
 #get datas
@@ -35,8 +35,8 @@ fig = plt.figure(figsize = (15,8))
 bar_width = 0.4
 
 left = [x for x in range(0, len(time))]
-plt.bar(left, front, bar_width, color='b', label='下载更新')
-plt.bar(left, end, bar_width, bottom=front, color='r', label = '下载安装')
+plt.bar(left, front, bar_width, color='#57B7E0', label='下载更新')
+plt.bar(left, end, bar_width, bottom=front, color='#F04752', label = '下载安装')
 plt.legend(loc='upper right', bbox_to_anchor=(1, -0.09), fancybox=True, ncol=5)
 
 #advance settings
@@ -44,14 +44,14 @@ plt.title('下载与安装')
 plt.xticks(range(len(time)),time,rotation=25)
 ax = fig.add_subplot(1,1,1)
 ax1 = ax.twinx()
-ax1.plot(bline, label = 'GP 安装/总安装')
+ax1.plot(bline, color='#778FC0', label = 'GP 安装/总安装')
 
 # ax.xaxis.set_major_formatter(mdate.DateFormatter('%Y/%m/%d'))#设置时间标签显示格式
 
 for i in range(0, len(time)):
-    ax.annotate(str(end[i]), (i-0.5, end[i]+front[i]))
+    ax.annotate(str(end[i]), (i-0.2, end[i]+front[i]))
 for i in range(0, len(time)):
-    ax1.annotate(str(format(bline[i], '.2%')), (i-0.5, bline[i]+0.01),rotation=60)
+    ax1.annotate(str(format(bline[i], '.2%')), (i, bline[i]))
 plt.legend(loc='upper left', bbox_to_anchor=(0.65, -0.09), fancybox=True, ncol=5)
 
 plt.savefig(u"下载与安装.png")
